@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block content %}
+     <div class="row mt_neg_13">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
+            <div class="register-card no_max_width">
+                <!--<h6 class="title">Welcome</h6>-->
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <form class="register-form" method="post" action="{{ request.path }}">
+                    {% csrf_token %}
+                    <label>Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+
+                    <label>Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+
+                    <label>First Name</label>
+                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" required>
+
+                    <label>Middle Name</label>
+                    <input type="text" name="middle_name" id="middle_name" class="form-control" placeholder="Middle Name" required>
+
+                    <label>Surname</label>
+                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder=" Surname" required>
+
+                    <label>Mobile Number</label>
+                    <input type="text" name="mobile_number" id="mobile_number" class="form-control" placeholder=" Mobile Number" required>
+
+                    <label>State</label>
+                    <input type="text" name="state_of_correspondence" id="state_of_correspondence" class="form-control" placeholder="State" required>
+
+                    <button class="btn btn-danger btn-block">Register</button>
+                </form>
+                <div class="forgot">
+                    <a href="{% url 'index' %}" class="btn btn-simple btn-danger font-12">Already registered? Click to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

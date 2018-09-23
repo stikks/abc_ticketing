@@ -30,7 +30,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo apt-get install virtualenv
+            sudo apt-get install virtualenv python3-venv
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt

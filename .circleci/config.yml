@@ -34,7 +34,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             psql -c "ALTER ROLE postgres WITH PASSWORD 'postgres';"
-	    psql -c "CREATE DATABASE abc;"
+            psql -c "CREATE DATABASE abc;"
             pip install -r requirements.txt
 
       - save_cache:
